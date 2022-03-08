@@ -3,15 +3,16 @@ import {persistCombineReducers} from 'redux-persist';
 import thunk from 'redux-thunk';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {composeWithDevTools} from 'redux-devtools-extension';
-//REDUX
+//REDUCERS
 import LoginReducer from '../reducers/LoginReducer';
-import GuestReducer from '../reducers/GuestReducer';
 import PilotReducer from '../reducers/PilotReducer';
+import GuestReducer from '../reducers/GuestReducer';
+import FavoriteReducer from '../reducers/FavoriteReducer';
 
 const config = {
   key: 'REDUX_STORE',
   storage: AsyncStorage,
-  whitelist: ['LoginReducer', 'PilotReducer'],
+  whitelist: ['PilotReducer', 'LoginReducer', 'FavoriteReducer'],
 };
 let debugWrapper = data => data;
 
@@ -20,9 +21,10 @@ if (__DEV__) {
 }
 
 const rootReducer = persistCombineReducers(config, {
+  PilotReducer,
   LoginReducer,
   GuestReducer,
-  PilotReducer,
+  FavoriteReducer,
 });
 
 const configureStore = () => {

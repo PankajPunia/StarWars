@@ -48,7 +48,6 @@ const PilotReducer = (state = initialState, action) => {
   }
 };
 
-//HELPERS
 //Updating Pilots data with starships details [{starshipName, starshipClass}]
 const addStarshipDetailsToPilots = (starShips, pilots) => {
   let starShipDetail = [];
@@ -72,3 +71,4 @@ const addStarshipDetailsToPilots = (starShips, pilots) => {
 };
 
 export default PilotReducer;
+
