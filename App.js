@@ -1,14 +1,32 @@
-import React from 'react';
+/**
+ * @format
+ * @flow strict-local
+ */
 
-import {Text, View, SafeAreaView} from 'react-native';
+import React from 'react';
+import {Text} from 'react-native';
+import {Provider} from 'react-redux';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+
+import configureStore from './src/App/redux/store/configureStore';
+import {PersistGate} from 'redux-persist/integration/react';
+import {persistStore} from 'redux-persist';
+
+const store = configureStore();
+
+const persistor = persistStore(store, null, () => {
+  store?.getState();
+});
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View>
-        <Text>StarWars</Text>
-      </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaProvider>
+          <Text>StarWars</Text>
+        </SafeAreaProvider>
+      </PersistGate>
+    </Provider>
   );
 };
 
