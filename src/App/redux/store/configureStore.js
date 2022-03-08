@@ -6,11 +6,12 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 //REDUX
 import LoginReducer from '../reducers/LoginReducer';
 import GuestReducer from '../reducers/GuestReducer';
+import PilotReducer from '../reducers/PilotReducer';
 
 const config = {
   key: 'REDUX_STORE',
   storage: AsyncStorage,
-  whitelist: ['LoginReducer'],
+  whitelist: ['LoginReducer', 'PilotReducer'],
 };
 let debugWrapper = data => data;
 
@@ -21,6 +22,7 @@ if (__DEV__) {
 const rootReducer = persistCombineReducers(config, {
   LoginReducer,
   GuestReducer,
+  PilotReducer,
 });
 
 const configureStore = () => {
