@@ -3,6 +3,7 @@ import {
   SET_PILOT_DETAIL,
   ERROR_PILOT_DETAIL,
   ERROR_STARSHIPS,
+  SET_SEARCH_DIRECTORY
 } from '../constants';
 
 const initialState = {
@@ -37,11 +38,17 @@ const PilotReducer = (state = initialState, action) => {
         ...state,
         errorMessage: action?.payload,
       };
+    case SET_SEARCH_DIRECTORY:
+      return {
+        ...state,
+        searchDirectory: action?.payload,
+      };
     default:
       return state;
   }
 };
 
+//HELPERS
 //Updating Pilots data with starships details [{starshipName, starshipClass}]
 const addStarshipDetailsToPilots = (starShips, pilots) => {
   let starShipDetail = [];

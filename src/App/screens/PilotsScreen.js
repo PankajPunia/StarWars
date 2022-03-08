@@ -1,13 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 //COMPONENTS
 import Container from '../components/container/Container';
-import Body from '../components/Text/Body';
+import Button from '../components/button/Button';
+import Input from '../components/input/Input';
 
 const PilotScreen = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <Container>
-      <Body classes="self-center mt-48">{'PilotScreen'}</Body>
+      <Input
+        onChangeText={setSearchQuery}
+        value={searchQuery}
+        placeholder="Search"
+        classes="mt-12"
+      />
+      <Button onPress={() => {}} text="Search" classes="my-4" />
     </Container>
   );
 };
