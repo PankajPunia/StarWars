@@ -15,7 +15,7 @@ const LoginScreen = () => {
   const isEnabled = email && password ? true : false;
   const onLogin = () => {
     dispatch(setLogin());
-    dispatch(setGuestUser(false));
+    dispatch(setGuestUser(false))
   };
   const onContinueAsGuest = () => {
     dispatch(setGuestUser());
