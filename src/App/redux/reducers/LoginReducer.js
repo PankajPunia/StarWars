@@ -1,4 +1,4 @@
-import {SET_LOGIN} from '../constants';
+import {SET_LOGIN, SET_LOGOUT} from '../constants';
 
 const initialState = {};
 
@@ -10,6 +10,8 @@ const LoginReducer = (state = initialState, action) => {
         ...state,
         accessToken: RandomNumber,
       };
+    case SET_LOGOUT:
+      return initialState;
     default:
       return state;
   }
